@@ -2,7 +2,7 @@ var jsonData;
 
 var getJson = function () {
     var tagScript = document.createElement('script');
-    var shelfJson = 'http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X';
+    var shelfJson = '//roberval.chaordicsystems.com/challenge/challenge.json?callback=X';
     
     tagScript.src = shelfJson;
 
