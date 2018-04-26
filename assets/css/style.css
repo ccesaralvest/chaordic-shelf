@@ -75,12 +75,17 @@ h1, h2, h3, p, a {
 	color: #000;
 }
 
-.product-details .product-prices p span {
+.product-details .price span {
 	font-weight: 600;
+	font-size: 15px;
 }
 
-.shelf-single-product {
-	float: left;
+.installments-price {
+	font-weight: 600;
+}
+.product-details .installments-price span {
+	font-weight: 100;
+	display: block;
 }
 
 .product-content {
@@ -91,10 +96,6 @@ h1, h2, h3, p, a {
 	padding-right: 15px;
 	padding-top: 20px;
 }
-.carrousel-wrapper .product-content {
-	float: none;
-	display: inline-block;
-}
 
 .product-content .product-thumbnail {
 	width: 100%;
@@ -104,6 +105,19 @@ h1, h2, h3, p, a {
 .product-content .product-thumbnail img {
 	width: 100%;
 }
+/* shelf single product */
+.shelf-single-product {
+	float: left;
+}
+.shelf-single-product .product-content {
+	border-right: #ececec solid 1px;
+}
+
+/* multiple products shelf */
+.carrousel-wrapper .product-content {
+	float: none;
+	display: inline-block;
+}
 
 .shelf-carrousel-products {
 	float: left;
@@ -111,14 +125,58 @@ h1, h2, h3, p, a {
 	max-width: 999px;
 }
 
+/* carrousel  */
+#carrousel-products {
+	position: relative;
+	overflow: hidden;
+
+}
 .carrousel-wrapper {
 	padding-left: 15px;
 	padding-right: 15px;
+	transition: -ms-transform 0.5s ease 0s,
+    			-webkit-transform 0.5s ease 0s, 
+    			transform 0.5s ease 0s;
+	position: relative;
+	width: 2000px;
 }
 
-.shelf-single-product .product-content {
-	border-right: #ececec solid 1px;
+#arrow-left {
+	position: absolute;
+	left: 10px;
+	z-index: 1;
+	display: none;
+	top: 40%;
+	background-image: url('../images/arrow-left.png');
+	background-repeat: no-repeat; 
+	background-size: 100%; 
+	width: 20px;
+    height: 39px;
 }
+#arrow-left:hover {
+	background-image: url('../images/arrow-left-hover.png');
+	background-repeat: no-repeat;
+	background-size: 100%; 
+}
+
+
+
+#arrow-right {
+	position: absolute;
+	right: 10px;
+	z-index: 1;
+	top: 40%;
+	background-image: url('../images/arrow-right.png');
+	background-repeat: no-repeat;
+	background-size: 100%; 
+	width: 20px;
+    height: 39px;
+}
+#arrow-right:hover {
+	background-image: url('../images/arrow-right-hover.png');
+	background-repeat: no-repeat;
+	background-size: 100%; 
+} 
 
 /* breakpoints */
 

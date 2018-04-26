@@ -2,7 +2,7 @@ var jsonData;
 
 var getJson = function () {
     var tagScript = document.createElement('script');
-    var shelfJson = '//roberval.chaordicsystems.com/challenge/challenge.json?callback=X';
+    var shelfJson = 'http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X';
     
     tagScript.src = shelfJson;
 
@@ -10,6 +10,7 @@ var getJson = function () {
     	window.jsonData = jsonData;
 		createProcuctRecommendation();
 		createProductReference();
+		slider();
     };
 
     document.getElementsByTagName('head')[0].appendChild(tagScript);
@@ -49,8 +50,8 @@ var createProcuctRecommendation = function() {
 									'</a>'+
 
 									'<a href="'+ productURL +'" class="details product-prices">'+
-										'<p class="price">Por :'+ productPrice +'</p>'+
-										'<p class="installments-price">ou 12X de R$ '+ productInstallmentsPriceFinal +' sem juros</p>'+
+										'<p class="price">Por: <span>'+ productPrice +'<span></p>'+
+										'<p class="installments-price">ou 12X de R$ '+ productInstallmentsPriceFinal +' <span>sem juros</span></p>'+
 									'</a>'+
 								'</div>'+
 							'</div>';	
@@ -66,9 +67,9 @@ var createProcuctRecommendation = function() {
 									'</a>'+
 
 									'<a href="'+ productURL +'" class="details product-prices">'+
-										'<p class="old-price">De :'+ productOldPrice +'</p>' +
-										'<p class="price">Por :'+ productPrice +'</p>'+
-										'<p class="installments-price">ou 12X de R$ '+ productInstallmentsPriceFinal +' sem juros</p>'+
+										'<p class="old-price">De: '+ productOldPrice +'</p>' +
+										'<p class="price">Por: <span>'+ productPrice +'</span></p>'+
+										'<p class="installments-price">ou 12X de R$ '+ productInstallmentsPriceFinal +' <span>sem juros</span></p>'+
 									'</a>'+
 								'</div>'+
 							'</div>';	
@@ -80,7 +81,6 @@ var createProcuctRecommendation = function() {
 		productRecomendation.innerHTML += htmlProductRecomendation;
 	}	
 }
-
 
 var createProductReference = function() {
 
@@ -118,8 +118,8 @@ var createProductReference = function() {
 								'<a href="'+ productURL +'" class="details product-prices">'+
 									'<p class="old-price">De: '+ productOldPrice +'</p>' +
 
-									'<p class="price">Por :'+ productPrice +'</p>'+
-									'<p class="installments-price">ou 12X de R$'+ productInstallmentsPriceFinal +' sem juros</p>'+
+									'<p class="price">Por: <span>'+ productPrice +'</span></p>'+
+									'<p class="installments-price">ou 12X de R$'+ productInstallmentsPriceFinal +' <span>sem juros</span></p>'+
 								'</a>'+
 							'</div>'+
 						'</div>';
@@ -127,6 +127,36 @@ var createProductReference = function() {
 	// product append in front	
 	var productReference = document.getElementById('reference-item');								
 	productReference.innerHTML += htmlProductReference;
+}
+
+var slider = function(){
+	var carrouselWraper = document.querySelector('.carrousel-wrapper');
+	var arrowLeft = document.querySelector('#arrow-left');
+	var arrowRight = document.querySelector('#arrow-right');
+
+	count = 0;
+	arrowLeft.addEventListener("click", function(e) {
+	    count++;
+
+	    carrouselWraper.style.left = count * 286 + 'px';
+	    if (count > -2) {
+	        arrowRight.style.display = 'block';
+	    }
+	    if (count >= 0) {
+	        arrowLeft.style.display = 'none';
+	    }
+	});
+
+	arrowRight.addEventListener("click", function(e) {
+	    count--;
+	    carrouselWraper.style.left = count * 286 + 'px';
+	    if (count < 0) {
+	        arrowLeft.style.display = 'block';
+	    }
+	    if (count <= - 4) {
+	        arrowRight.style.display = 'none';
+	    }
+	});
 }
 
 getJson();
