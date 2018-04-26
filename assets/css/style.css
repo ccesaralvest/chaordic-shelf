@@ -214,7 +214,6 @@ h1, h2, h3, p, a {
 
 	.product-content {
 	    max-width: 147px;
-	    display: block;
 	    margin: 0 auto;
 	    margin-top: 20px;
 	}
@@ -230,7 +229,7 @@ h1, h2, h3, p, a {
 	.product-content, .carrousel-wrapper .product-content {
 	    max-width: 147px;
 	    margin: 0 auto;
-	    display: block;
+	    display: inline-block;
 	}
 
 	.shelf-single-product {
@@ -251,6 +250,7 @@ h1, h2, h3, p, a {
 	}
 	.shelf-single-product .product-content {
 		border-right: none;
+		display: block;
 	}
 
 }

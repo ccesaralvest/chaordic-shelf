@@ -133,30 +133,58 @@ var slider = function(){
 	var carrouselWraper = document.querySelector('.carrousel-wrapper');
 	var arrowLeft = document.querySelector('#arrow-left');
 	var arrowRight = document.querySelector('#arrow-right');
+	var screenWidth = window.screen.availWidth;
+	if(screenWidth > 768 ){    
+		count = 0;
+		arrowLeft.addEventListener("click", function(e) {
+		    count++;
+			
+			    carrouselWraper.style.left = count * 286 + 'px';
+			    if (count > -2) {
+			        arrowRight.style.display = 'block';
+			    }
+			    if (count >= 0) {
+			        arrowLeft.style.display = 'none';
+			    }
 
-	count = 0;
-	arrowLeft.addEventListener("click", function(e) {
-	    count++;
+		});
 
-	    carrouselWraper.style.left = count * 286 + 'px';
-	    if (count > -2) {
-	        arrowRight.style.display = 'block';
-	    }
-	    if (count >= 0) {
-	        arrowLeft.style.display = 'none';
-	    }
-	});
+		arrowRight.addEventListener("click", function(e) {
+		    count--;
+		    carrouselWraper.style.left = count * 286 + 'px';
+		    if (count < 0) {
+		        arrowLeft.style.display = 'block';
+		    }
+		    if (count <= - 4) {
+		        arrowRight.style.display = 'none';
+		    }
+		});
+	} else {
+		count = 0;
+		arrowLeft.addEventListener("click", function(e) {
+		    count++;
+			
+			    carrouselWraper.style.left = count * 256 + 'px';
+			    if (count > -2) {
+			        arrowRight.style.display = 'block';
+			    }
+			    if (count >= 0) {
+			        arrowLeft.style.display = 'none';
+			    }
 
-	arrowRight.addEventListener("click", function(e) {
-	    count--;
-	    carrouselWraper.style.left = count * 286 + 'px';
-	    if (count < 0) {
-	        arrowLeft.style.display = 'block';
-	    }
-	    if (count <= - 4) {
-	        arrowRight.style.display = 'none';
-	    }
-	});
+		});
+
+		arrowRight.addEventListener("click", function(e) {
+		    count--;
+		    carrouselWraper.style.left = count * 256 + 'px';
+		    if (count < 0) {
+		        arrowLeft.style.display = 'block';
+		    }
+		    if (count <= - 5) {
+		        arrowRight.style.display = 'none';
+		    }
+		});
+	}
 }
 
 getJson();
