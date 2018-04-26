@@ -89,12 +89,7 @@ var createProductReference = function() {
 	var productName = productReference.name;
 	var productURL = productReference.detailUrl;
 	var productImageUrl = productReference.imageName;
-	
 	var productOldPrice = productReference.oldPrice;
-	
-	// if( !productReference.oldPrice === null) {
-	// 	var productOldPrice = productReference.oldPrice;
-	// }
 	var productPrice = productReference.price;	
 
 
